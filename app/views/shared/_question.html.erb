@@ -1,7 +1,9 @@
 <div class="question">
   <div class="prompt">
-    <b><%=index%>)</b>
-    <i><%= question.prompt %></i>
+    <b>
+      <%=index + 1%>)
+      <i><%= question.prompt %></i>
+    </b>
   </div>
   <%- question.randomized_answers.each do |answer|%>
     <div class="answer">
