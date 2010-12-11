@@ -14,6 +14,8 @@ module NavigationHelpers
       quizzes_path
     when /the student index page/
       students_path
+    when /the question index page for "Respiratory Protection/
+      quiz_questions_path(Quiz.find_by_name("Respiratory Protection"))
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

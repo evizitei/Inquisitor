@@ -10,6 +10,10 @@
   <%= @quiz.pass_percentage %>
 </p>
 
+<p>
+  <%= link_to "Questions",quiz_questions_path(@quiz)%>
+</p>
+
 
 <%= link_to 'Edit', edit_quiz_path(@quiz) %> |
 <%= link_to 'Back', quizzes_path %>
