@@ -1,0 +1,33 @@
+<%= form_for([@quiz,@attempt]) do |f| %>
+  <% if @attempt.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@attempt.errors.count, "error") %> prohibited this attempt from being saved:</h2>
+
+      <ul>
+      <% @attempt.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :quiz_id %><br />
+    <%= f.text_field :quiz_id %>
+  </div>
+  <div class="field">
+    <%= f.label :student_id %><br />
+    <%= f.text_field :student_id %>
+  </div>
+  <div class="field">
+    <%= f.label :percent_correct %><br />
+    <%= f.text_field :percent_correct %>
+  </div>
+  <div class="field">
+    <%= f.label :wrong_answers %><br />
+    <%= f.text_area :wrong_answers %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

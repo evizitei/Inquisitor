@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Quiz:</b>
+  <%= @attempt.quiz_id %>
+</p>
+
+<p>
+  <b>Student:</b>
+  <%= @attempt.student_id %>
+</p>
+
+<p>
+  <b>Percent correct:</b>
+  <%= @attempt.percent_correct %>
+</p>
+
+<p>
+  <b>Wrong answers:</b>
+  <%= @attempt.wrong_answers %>
+</p>
+
+
+<%= link_to 'Edit', edit_attempt_path(@attempt) %> |
+<%= link_to 'Back', attempts_path %>

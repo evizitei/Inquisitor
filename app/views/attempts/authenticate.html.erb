@@ -1,0 +1,13 @@
+<%= form_tag register_quiz_attempts_path(@quiz),:method=>"POST" do %>
+  <%- if @error%>
+    <p class="error"><%= @error%></p>
+  <%- end%>
+  <p>Please enter your ID before taking this quiz: <%= @quiz.name%></p>
+  <div class="field">
+    <%= label_tag :student_organization_id,"Id" %><br />
+    <%= text_field_tag :student_organization_id %>
+  </div>
+  <div class="actions">
+    <%= submit_tag "Start Quiz" %>
+  </div>
+<% end %>

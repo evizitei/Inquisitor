@@ -1,0 +1,29 @@
+<h1>Listing attempts</h1>
+
+<table>
+  <tr>
+    <th>Quiz</th>
+    <th>Student</th>
+    <th>Percent correct</th>
+    <th>Wrong answers</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @attempts.each do |attempt| %>
+  <tr>
+    <td><%= attempt.quiz_id %></td>
+    <td><%= attempt.student_id %></td>
+    <td><%= attempt.percent_correct %></td>
+    <td><%= attempt.wrong_answers %></td>
+    <td><%= link_to 'Show', attempt %></td>
+    <td><%= link_to 'Edit', edit_attempt_path(attempt) %></td>
+    <td><%= link_to 'Destroy', attempt, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Attempt', new_attempt_path %>
