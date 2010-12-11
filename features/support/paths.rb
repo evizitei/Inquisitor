@@ -12,6 +12,8 @@ module NavigationHelpers
       '/'
     when /the quiz index page/
       quizzes_path
+    when /the student index page/
+      students_path
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
