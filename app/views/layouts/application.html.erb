@@ -7,10 +7,13 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
-
+  <%- if user_signed_in? %>
+    <%=link_to "Quizzes",quizzes_path%>
+    <%=link_to "Students",students_path%>
+  <%- end %>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
-
+  
 <%= yield %>
 
 </body>
