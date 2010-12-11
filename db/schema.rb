@@ -10,11 +10,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101210222658) do
+ActiveRecord::Schema.define(:version => 20101211040622) do
 
   create_table "quizzes", :force => true do |t|
     t.string   "name"
     t.integer  "pass_percentage"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "students", :force => true do |t|
+    t.string   "organization_id"
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
