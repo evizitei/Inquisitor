@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Prompt:</b>
+  <%= @question.prompt %>
+</p>
+
+<p>
+  <b>Correct answer:</b>
+  <%= @question.correct_answer %>
+</p>
+
+<p>
+  <b>Distractor 1:</b>
+  <%= @question.distractor_1 %>
+</p>
+
+<p>
+  <b>Distractor 2:</b>
+  <%= @question.distractor_2 %>
+</p>
+
+<p>
+  <b>Distractor 3:</b>
+  <%= @question.distractor_3 %>
+</p>
+
+<p>
+  <b>Quiz:</b>
+  <%= @question.quiz_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_quiz_question_path(@question.quiz,@question) %> |
+<%= link_to 'Back', quiz_questions_path(@question.quiz) %>

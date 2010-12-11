@@ -1,0 +1,33 @@
+<h1>Listing questions</h1>
+
+<table>
+  <tr>
+    <th>Prompt</th>
+    <th>Correct answer</th>
+    <th>Distractor 1</th>
+    <th>Distractor 2</th>
+    <th>Distractor 3</th>
+    <th>Quiz</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @questions.each do |question| %>
+  <tr>
+    <td><%= question.prompt %></td>
+    <td><%= question.correct_answer %></td>
+    <td><%= question.distractor_1 %></td>
+    <td><%= question.distractor_2 %></td>
+    <td><%= question.distractor_3 %></td>
+    <td><%= question.quiz_id %></td>
+    <td><%= link_to 'Show', [@quiz,question] %></td>
+    <td><%= link_to 'Edit', edit_quiz_question_path(@quiz,question) %></td>
+    <td><%= link_to 'Destroy', [@quiz,question], :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Question', new_quiz_question_path(@quiz) %>

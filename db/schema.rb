@@ -10,7 +10,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101211040622) do
+ActiveRecord::Schema.define(:version => 20101211042334) do
+
+  create_table "questions", :force => true do |t|
+    t.string   "prompt"
+    t.string   "correct_answer"
+    t.string   "distractor_1"
+    t.string   "distractor_2"
+    t.string   "distractor_3"
+    t.integer  "quiz_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "questions", ["quiz_id"], :name => "index_questions_on_quiz_id"
 
   create_table "quizzes", :force => true do |t|
     t.string   "name"

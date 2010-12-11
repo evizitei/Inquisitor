@@ -1,0 +1,38 @@
+<%= form_for([@quiz,@question]) do |f| %>
+  <% if @question.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@question.errors.count, "error") %> prohibited this question from being saved:</h2>
+
+      <ul>
+      <% @question.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :prompt %><br />
+    <%= f.text_field :prompt %>
+  </div>
+  <div class="field">
+    <%= f.label :correct_answer %><br />
+    <%= f.text_field :correct_answer %>
+  </div>
+  <div class="field">
+    <%= f.label :distractor_1 %><br />
+    <%= f.text_field :distractor_1 %>
+  </div>
+  <div class="field">
+    <%= f.label :distractor_2 %><br />
+    <%= f.text_field :distractor_2 %>
+  </div>
+  <div class="field">
+    <%= f.label :distractor_3 %><br />
+    <%= f.text_field :distractor_3 %>
+  </div>
+  <%= f.hidden_field :quiz_id %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
