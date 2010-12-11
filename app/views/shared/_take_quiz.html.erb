@@ -1,0 +1,6 @@
+<h2><%=quiz.name%></h2>
+<%= form_tag quiz_attempts_path(quiz),:method=>"POST" do%>
+  <%- quiz.questions.each_with_index do |question,idx|%>
+    <%= render :partial=>"shared/question",:locals=>{:question=>question,:index=>idx}%>
+  <%- end%>
+<%- end %>

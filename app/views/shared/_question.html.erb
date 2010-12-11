@@ -1,0 +1,12 @@
+<div class="question">
+  <div class="prompt">
+    <b><%=index%>)</b>
+    <i><%= question.prompt %></i>
+  </div>
+  <%- question.randomized_answers.each do |answer|%>
+    <div class="answer">
+      <%=radio_button_tag "question[#{question.id}]",answer%> 
+      <%= answer%>
+    </div>
+  <%- end%>
+</div>

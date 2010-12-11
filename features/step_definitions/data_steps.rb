@@ -9,3 +9,7 @@ end
 Given /^there are no students in the system$/ do
   Student.delete_all
 end
+
+Given /^the database is seeded$/ do
+  load "#{Rails.root}/db/seeds.rb"
+end
