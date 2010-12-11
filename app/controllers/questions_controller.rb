@@ -82,9 +82,4 @@ class QuestionsController < ApplicationController
       format.xml  { head :ok }
     end
   end
-  
-protected
-  def load_quiz
-    @quiz = Quiz.find(params[:quiz_id])
-  end
 end

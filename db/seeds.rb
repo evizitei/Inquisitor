@@ -5,5 +5,15 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
-User.create(:email=>"jcreamer@bcfdmo.com",:password=>"firedistrict")
-User.create(:email=>"ethan.vizitei@gmail.com",:password=>"firedistrict")
+josh = User.find_or_create_by_email("jcreamer@bcfdmo.com")
+josh.update_attributes!(:password=>"firedistrict")
+ethan = User.find_or_create_by_email("ethan.vizitei@gmail.com")
+ethan.update_attributes!(:password=>"firedistrict")
+
+quiz = Quiz.find_or_create_by_name("Respiratory Protection")
+quiz.update_attributes(:pass_percentage=>75)
+
+quiz.questions.delete_all
+quiz.questions.create!(:prompt=>"By OSHA standards you are allowed to have hair growth between the facepiece sealing surface and skin.",
+                       :correct_answer=>"false",
+                       :distractor_1=>"true")

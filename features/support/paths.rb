@@ -14,8 +14,13 @@ module NavigationHelpers
       quizzes_path
     when /the student index page/
       students_path
-    when /the question index page for "Respiratory Protection/
+    when /the question index page for "Respiratory Protection"/
       quiz_questions_path(Quiz.find_by_name("Respiratory Protection"))
+    when /the quiz start page for "Respiratory Protection"/
+      authenticate_quiz_attempts_path(Quiz.find_by_name("Respiratory Protection"))
+    when /the quiz taking page for "Respiratory Protection"/
+      new_quiz_attempt_path(Quiz.find_by_name("Respiratory Protection"))
+      
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

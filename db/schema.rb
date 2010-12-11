@@ -10,7 +10,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101211042334) do
+ActiveRecord::Schema.define(:version => 20101211193459) do
+
+  create_table "attempts", :force => true do |t|
+    t.integer  "quiz_id"
+    t.integer  "student_id"
+    t.float    "percent_correct"
+    t.text     "wrong_answers"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "attempts", ["quiz_id"], :name => "index_attempts_on_quiz_id"
+  add_index "attempts", ["student_id"], :name => "index_attempts_on_student_id"
 
   create_table "questions", :force => true do |t|
     t.string   "prompt"
