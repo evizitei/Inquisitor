@@ -26,5 +26,12 @@ Feature: Taking a quiz
     When I go to the quiz taking page for "Respiratory Protection"
     Then I should see "By OSHA standards you are allowed to have hair growth"
       And I should see "Any type of respirator will work in all type of gases and vapors"
+  
+  Scenario: taking a test
+    Given the database is seeded
+      And I am registered as the student with id "EV2345" 
+    When I go to the quiz taking page for "Respiratory Protection"
+      And I fill out the Respiratory Protection test perfectly
+    Then I should have one quiz attempt for "EV2345" with a score of "100.0"
     
         

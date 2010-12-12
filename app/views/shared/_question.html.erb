@@ -1,4 +1,4 @@
-<div class="question">
+<div class="question" id="question_<%=question.id%>">
   <div class="prompt">
     <b>
       <%=index + 1%>)
@@ -8,7 +8,7 @@
   <%- question.randomized_answers.each do |answer|%>
     <div class="answer">
       <%=radio_button_tag "question[#{question.id}]",answer%> 
-      <%= answer%>
+      <%= label_tag "question_#{question.id}_#{answer.gsub(/[^-a-zA-Z0-9:.]/, "_")}",answer%>
     </div>
   <%- end%>
 </div>

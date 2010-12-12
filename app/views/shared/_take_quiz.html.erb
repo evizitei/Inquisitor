@@ -3,4 +3,5 @@
   <%- quiz.questions.each_with_index do |question,idx|%>
     <%= render :partial=>"shared/question",:locals=>{:question=>question,:index=>idx}%>
   <%- end%>
+  <%= submit_tag "Submit Quiz"%>
 <%- end %>

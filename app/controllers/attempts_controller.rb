@@ -1,6 +1,6 @@
 class AttemptsController < ApplicationController
-  before_filter :load_quiz,:only=>[:index,:new,:edit,:authenticate,:register]
-
+  before_filter :load_quiz,:only=>[:index,:new,:create,:quiz,:edit,:authenticate,:register]
+  before_filter :load_student,:only=>[:new,:create]
   # GET /attempts
   # GET /attempts.xml
   def index
@@ -26,11 +26,6 @@ class AttemptsController < ApplicationController
   # GET /attempts/new
   # GET /attempts/new.xml
   def new
-    @student = Student.find_by_id(session[:student])
-    if @student.nil?
-      redirect_to authenticate_quiz_attempts_path(@quiz)
-      return
-    end
     @attempt = Attempt.new
 
     respond_to do |format|
@@ -47,11 +42,11 @@ class AttemptsController < ApplicationController
   # POST /attempts
   # POST /attempts.xml
   def create
-    @attempt = Attempt.new(params[:attempt])
+    @attempt = Attempt.to_pass_quiz(@quiz,@student,params[:question])
 
     respond_to do |format|
       if @attempt.save
-        format.html { redirect_to(@attempt, :notice => 'Attempt was successfully created.') }
+        format.html { redirect_to(quiz_attempt_path(@quiz,@attempt), :notice => 'Quiz was completed.') }
         format.xml  { render :xml => @attempt, :status => :created, :location => @attempt }
       else
         format.html { render :action => "new" }
@@ -100,5 +95,11 @@ class AttemptsController < ApplicationController
     else
       redirect_to authenticate_quiz_attempts_path(@quiz,:error=>"Your Id is invalid")
     end
+  end
+  
+protected
+  def load_student
+    @student = Student.find_by_id(session[:student])
+    redirect_to authenticate_quiz_attempts_path(@quiz) if @student.nil?
   end
 end

@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<h2>Thanks for taking the quiz</h2>
 <p>
   <b>Quiz:</b>
   <%= @attempt.quiz_id %>
@@ -7,7 +7,7 @@
 
 <p>
   <b>Student:</b>
-  <%= @attempt.student_id %>
+  <%= @attempt.student.organization_id %>
 </p>
 
 <p>
@@ -15,11 +15,4 @@
   <%= @attempt.percent_correct %>
 </p>
 
-<p>
-  <b>Wrong answers:</b>
-  <%= @attempt.wrong_answers %>
-</p>
-
-
-<%= link_to 'Edit', edit_attempt_path(@attempt) %> |
-<%= link_to 'Back', attempts_path %>
+<h2>You're Done!</h2>
