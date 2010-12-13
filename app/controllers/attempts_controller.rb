@@ -16,7 +16,7 @@ class AttemptsController < ApplicationController
   # GET /attempts/1.xml
   def show
     @attempt = Attempt.find(params[:id])
-
+    session[:student] = nil
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @attempt }

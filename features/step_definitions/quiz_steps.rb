@@ -9,7 +9,6 @@ When /^I fill out the Respiratory Protection test perfectly$/ do
   And "I choose \"true\" within \"#question_8\""
   And "I choose \"SCBA-Self contained Breathing Apparatus\" within \"#question_9\""
   And "I choose \"false\" within \"#question_10\""
-  And "I press \"Submit Quiz\""
 end
 
 Then /^I should have one quiz attempt for "([^"]*)" with a score of "([^"]*)"$/ do |org_id, score|

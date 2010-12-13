@@ -27,4 +27,8 @@ class Attempt < ActiveRecord::Base
     self.save!
     return self
   end
+  
+  def passed?
+    self.percent_correct >= quiz.pass_percentage
+  end
 end

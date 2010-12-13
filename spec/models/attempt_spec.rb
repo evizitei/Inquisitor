@@ -36,5 +36,12 @@ describe Attempt do
     it "caches the wrong answers" do
       attempt.wrong_answers.should == [{:correct_answer=>"Wash in warm water with a mild detergent and rinse", :question=>"Cleaning the facepiece do you? ", :given_answer=>"Use clean breathing air "}, {:correct_answer=>"true", :question=>"Your medical records are kept confidential with the medical group.", :given_answer=>"false"}, {:correct_answer=>"SCBA-Self contained Breathing Apparatus", :question=>"What type of respiratory protective equipment would you wear into an IDLH atmosphere?", :given_answer=>"Dust mask"}, {:correct_answer=>"Cover air inlets to cartridges, air regulator openings ext and inhale gently so the facepiece collapses slightly and no inward leakage is detected", :question=>"How do you perform a facepiece negative pressure check? ", :given_answer=>"With the facepiece on inhale gently checking for leakage"}]
     end
+    
+    it "knows whether it passed" do
+      @quiz.update_attributes!(:pass_percentage=>65.0)
+      attempt.reload.passed?.should == false
+      @quiz.update_attributes!(:pass_percentage=>55.0)
+      attempt.reload.passed?.should == true
+    end
   end
 end

@@ -1,8 +1,15 @@
 <p id="notice"><%= notice %></p>
 <h2>Thanks for taking the quiz</h2>
+<%- if @attempt.passed? %>
+  <h3>Congratulations, you passed!</h3>
+<%- else%>
+  <p>Sorry, you didn't pass.  You can try again if you'd like.</p>
+  <%= link_to "Retake Quiz",new_quiz_attempt_path(@quiz)%>
+<%- end%>
+
 <p>
   <b>Quiz:</b>
-  <%= @attempt.quiz_id %>
+  <%= @attempt.quiz.name %>
 </p>
 
 <p>
