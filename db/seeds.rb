@@ -135,4 +135,3 @@ quiz.questions.create!(:id=>20,
                         :distractor_1=>"Practice good hygiene (hand washing)",
                         :distractor_2=>"Wear appropriate PPE",
                         :distractor_3=>"A. Receive vaccinations and boosters")
-

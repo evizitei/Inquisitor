@@ -88,7 +88,7 @@ class AttemptsController < ApplicationController
   end
   
   def register
-    student = Student.find_by_organization_id(params[:student_organization_id])
+    student = Student.find_by_formatted_organization_id(params[:student_organization_id])
     if student
       session[:student] = student.id 
       redirect_to new_quiz_attempt_path(@quiz)

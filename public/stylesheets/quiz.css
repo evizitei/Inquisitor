@@ -1,0 +1,10 @@
+.question{
+	margin-top:15px;
+	width: 700px;
+	border-bottom: 1px dashed black;
+	padding: 10px;
+}
+
+.prompt{
+  margin-bottom:10px;
+}
