@@ -12,3 +12,9 @@ Feature: Managing the quizzes in the system
         And I press "Create Quiz"
       Then I should be on the quiz index page
         And I should see "Blood Bourne Pathogens"
+  
+   Scenario: getting a link for a test
+     Given the database is seeded
+     When I log in with "sdunkin@bcfdmo.com" and "firedistrict"
+       And I am on the quiz index page
+      Then I should see "/quizzes/1/attempts/new"
