@@ -4,7 +4,7 @@ class QuestionsController < ApplicationController
   # GET /questions
   # GET /questions.xml
   def index
-    @questions = Question.all
+    @questions = @quiz.questions
 
     respond_to do |format|
       format.html # index.html.erb
