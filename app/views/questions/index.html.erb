@@ -8,6 +8,7 @@
     <th>Distractor 2</th>
     <th>Distractor 3</th>
     <th>Quiz</th>
+    <th>Questions</th>
     <th></th>
     <th></th>
     <th></th>
@@ -21,6 +22,7 @@
     <td><%= question.distractor_2 %></td>
     <td><%= question.distractor_3 %></td>
     <td><%= question.quiz_id %></td>
+    <td><%= link_to "Questions", quiz_questions_path(@quiz)%>
     <td><%= link_to 'Show', [@quiz,question] %></td>
     <td><%= link_to 'Edit', edit_quiz_question_path(@quiz,question) %></td>
     <td><%= link_to 'Destroy', [@quiz,question], :confirm => 'Are you sure?', :method => :delete %></td>
