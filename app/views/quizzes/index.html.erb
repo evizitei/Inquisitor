@@ -16,7 +16,7 @@
     <td><%= quiz.name %></td>
     <td><%= quiz.pass_percentage %></td>
     <td><%= new_quiz_attempt_url(quiz)%></td>
-    <td><%= link_to "Questions", quiz_questions_path(@quiz)%></td>
+    <td><%= link_to "Questions", quiz_questions_path(quiz)%></td>
     <td><%= link_to 'Show', quiz %></td>
     <td><%= link_to 'Edit', edit_quiz_path(quiz) %></td>
     <td><%= link_to 'Destroy', quiz, :confirm => 'Are you sure?', :method => :delete %></td>
