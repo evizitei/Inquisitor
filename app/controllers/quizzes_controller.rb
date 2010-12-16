@@ -102,6 +102,6 @@ class QuizzesController < ApplicationController
       # send it to the browsah
       send_data csv_string,
                 :type => 'text/csv; charset=iso-8859-1; header=present',
-                :disposition => "attachment; filename=quiz_report_#{quiz.id}.csv"
+                :disposition => "attachment; filename=quiz_report_#{@quiz.id}.csv"
   end
 end
