@@ -78,8 +78,30 @@ class QuizzesController < ApplicationController
     @quiz.destroy
 
     respond_to do |format|
-      format.html { redirect_to(quizzes_url) }
+      format.html { redirect_to(quizzes_path) }
       format.xml  { head :ok }
     end
+  end
+  
+  def report
+    @quiz = Quiz.find(params[:id])
+    csv_string = FasterCSV.generate do |csv|
+      # header row
+      csv << [@quiz.name,Date.today.strftime("%m/%d/%Y")]
+      csv << ["Passing Score: #{@quiz.pass_percentage}%"]
+      csv << ["id", "name", "score", "wrong"]
+
+      @quiz.attempts.each do |attempt|
+        csv << [attempt.student.organization_id, 
+                attempt.student.name,
+                "#{attempt.percent_correct}%",
+                attempt.wrong_answers.inspect]
+      end
+    end
+
+      # send it to the browsah
+      send_data csv_string,
+                :type => 'text/csv; charset=iso-8859-1; header=present',
+                :disposition => "attachment; filename=quiz_report_#{quiz.id}.csv"
   end
 end

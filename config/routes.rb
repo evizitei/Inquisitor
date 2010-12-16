@@ -9,6 +9,10 @@ Inquisition::Application.routes.draw do
         post "register"
       end
     end
+    
+    member do
+      get "report"
+    end
   end
 
   devise_for :users

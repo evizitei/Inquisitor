@@ -64,6 +64,7 @@ GEM
     factory_girl_rails (1.0)
       factory_girl (~> 1.3)
       rails (>= 3.0.0.beta4)
+    fastercsv (1.5.3)
     ffi (0.6.3)
       rake (>= 0.8.7)
     gherkin (2.3.2)
@@ -143,6 +144,7 @@ DEPENDENCIES
   database_cleaner
   devise
   factory_girl_rails
+  fastercsv
   launchy
   rails (= 3.0.3)
   rspec-rails
