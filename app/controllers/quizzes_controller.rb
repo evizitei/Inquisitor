@@ -89,11 +89,12 @@ class QuizzesController < ApplicationController
       # header row
       csv << [@quiz.name,Date.today.strftime("%m/%d/%Y")]
       csv << ["Passing Score: #{@quiz.pass_percentage}%"]
-      csv << ["id", "name", "score", "wrong"]
+      csv << ["id", "name", "date", "score", "wrong"]
 
       @quiz.attempts.each do |attempt|
         csv << [attempt.student.organization_id, 
                 attempt.student.name,
+                attempt.created_at.strftime("%m/%d/%Y"),
                 "#{attempt.percent_correct}%",
                 attempt.wrong_answers.inspect]
       end
