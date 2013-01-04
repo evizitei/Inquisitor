@@ -43,16 +43,8 @@ class AttemptsController < ApplicationController
   # POST /attempts.xml
   def create
     @attempt = Attempt.to_pass_quiz(@quiz,@student,params[:question])
-
-    respond_to do |format|
-      if @attempt.save
-        format.html { redirect_to(quiz_attempt_path(@quiz,@attempt), :notice => 'Quiz was completed.') }
-        format.xml  { render :xml => @attempt, :status => :created, :location => @attempt }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @attempt.errors, :status => :unprocessable_entity }
-      end
-    end
+    StudentMailer.certificate_email(@attempt).deliver if @attempt.passed?
+    redirect_to(quiz_attempt_path(@quiz,@attempt), :notice => 'Quiz was completed.')
   end
 
   # PUT /attempts/1
