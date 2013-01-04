@@ -82,6 +82,7 @@ class AttemptsController < ApplicationController
   def register
     student = Student.find_by_formatted_organization_id(params[:student_organization_id])
     if student
+      student.update_attribute(:email, params[:student_email]) unless params[:student_email].blank?
       session[:student] = student.id 
       redirect_to new_quiz_attempt_path(@quiz)
     else
